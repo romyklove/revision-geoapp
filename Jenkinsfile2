@@ -6,8 +6,11 @@ pipeline{
     stages{
         stage ('sonarqube scan'){
             steps{
+                withSonarQubeEnv('sonarQube'){
+
                 sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=romyklove_revision-geoapp'
             }
+        }
         }
         stage('maven commands2'){
             steps{
