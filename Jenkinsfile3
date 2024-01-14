@@ -6,8 +6,8 @@ pipeline{
         stage('check current directory'){
             steps{
                 sh 'pwd'
-                sh 'whoami'
-                //sh "mkdir \$(date '+%Y%m%d_%H%M%S')"
+                sh 'id'
+                sh "mkdir \$(date '+%Y%m%d_%H%M%S')"
                 sh 'python3 --version'
                 sh 'npm --version'
             }
