@@ -8,8 +8,13 @@ pipeline{
                 sh 'pwd'
                 sh 'id'
                 sh "mkdir \$(date '+%Y%m%d_%H%M%S')"
-                sh 'python3 --version'
                 sh 'npm --version'
+                
+            }
+        }
+        stage('python script'){
+            steps{
+               sh 'python3 --version' 
             }
         }
     }
