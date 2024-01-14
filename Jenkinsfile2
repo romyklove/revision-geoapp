@@ -21,7 +21,19 @@ pipeline{
             steps{
                 sh 'curl -uadmin:AP8FLm7718W6o5MZnPEHVRnaYwx -T \
                 target/bio*.jar \
-                "http://ec2-18-208-115-42.compute-1.amazonaws.com:8081/artifactory/geoapp1/"'
+                "http://ec2-18-234-208-181.compute-1.amazonaws.com:8081/artifactory/geoapp1/"'
+            }
+        }
+        stage('image build'){
+            steps{
+                sh ' aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 185882989056.dkr.ecr.us-east-1.amazonaws.com'
+                sh 'docker build -t geoapp .'
+            }
+        }
+        stage('push image'){
+            steps{
+                sh 'docker tag geoapp:latest 185882989056.dkr.ecr.us-east-1.amazonaws.com/geoapp:latest'
+                sh 'docker push 185882989056.dkr.ecr.us-east-1.amazonaws.com/geoapp:latest'
             }
         }
     }
