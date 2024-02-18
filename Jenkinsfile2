@@ -23,7 +23,7 @@ pipeline{
             steps{
                 sh 'curl -uadmin:AP8FLm7718W6o5MZnPEHVRnaYwx -T \
                 target/bio*.jar \
-                "http://ec2-18-234-208-181.compute-1.amazonaws.com:8081/artifactory/geoapp1/"'
+                "http://ec2-44.203.35.3.compute-1.amazonaws.com:8081/artifactory/geoapp1/"'
             }
         }
         stage('image build'){
