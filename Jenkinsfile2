@@ -12,7 +12,7 @@ pipeline{
                   sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=romyklove_revision-geoapp'
             }
         }
-        }
+    }
         stage('maven commands2'){
             steps{
                 sh 'mvn clean compile install package'
