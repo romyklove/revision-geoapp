@@ -7,7 +7,7 @@ pipeline{
         stage('sonarqube scan'){
            agent {docker { image 'maven:3-amazoncorretto-17-debian' }}
               steps{
-                withSonarQubeEnv('sonarQube'){
+                withSonarQubeEnv('sonarserver'){
 
                   sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=romyklove_revision-geoapp'
             }
